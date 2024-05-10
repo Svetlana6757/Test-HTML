@@ -13,27 +13,19 @@ print(response.content)
 response = requests.get('https://api.github.com')
 print(response.text)
 response_json = response.json()
+pprint.pprint(response_json)
 pprint.pprint(response_json)'''
 
-'''
 import requests
-import pprint
+
 params = {
-    'q': 'JavaScript'
+    'q': 'html'
 }
 
 response = requests.get(url='https://api.github.com/search/repositories', params=params)
 
 response_json = response.json()
-pprint.pprint(response_json)
 
-print(f"Количество репозиториев с js: {response_json['total_count']}")'''
+print(response.status_code)
+print(f"Количество репозиториев с html: {response_json['total_count']}")
 
-
-import requests
-
-img = "https://natalyland.ru/wp-content/uploads/1/6/5/165a740577042cbe692c33af365d14d1.jpeg"
-response = requests.get(img)
-
-with open('test.jpg', 'wb') as file:
-   file.write(response.content)
